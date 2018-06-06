@@ -7,6 +7,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: new AppBar(
         title: Text('NoTodo'),
+        centerTitle: true,
         backgroundColor: Colors.black54,
       ),
       body: new NotoDoScreen(),
