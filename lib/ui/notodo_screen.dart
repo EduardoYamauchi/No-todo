@@ -100,6 +100,7 @@ class _NotoDoScreenState extends State<NotoDoScreen> {
             onPressed: () {
               _handleSubmitted(_textEditingController.text);
               _textEditingController.clear();
+              Navigator.pop(context);
             },
             child: Text('Save')),
         new FlatButton(
@@ -114,10 +115,14 @@ class _NotoDoScreenState extends State<NotoDoScreen> {
   }
 
   void _readNoDoList() async {
+    //This is a method for insert data before the screen load
     List items = await db.getItems();
     items.forEach((item) {
-      NoDoItem noDoItem = NoDoItem.map(item);
-      print('Db items: ${noDoItem.itemName}');
+//      NoDoItem noDoItem = NoDoItem.map(item);
+      setState(() {
+        _itemList.add(NoDoItem.map(item));
+      });
+//      print('Db items: ${noDoItem.itemName}');
     });
   }
 }
