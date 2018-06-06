@@ -79,7 +79,7 @@ class DatabaseHelper {
   }
 
 
-  Future<int> updateUser(NoDoItem item) async {
+  Future<int> updateItem(NoDoItem item) async {
     var dbClient = await db;
     return await dbClient.update(tableName,
         item.toMap(), where: "$columnId = ?", whereArgs: [item.id]);
