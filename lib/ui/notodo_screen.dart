@@ -24,8 +24,7 @@ class _NotoDoScreenState extends State<NotoDoScreen> {
 
   void _handleSubmitted(String text) async {
     _textEditingController.clear();
-    NoDoItem noDoItem =
-        new NoDoItem(text, new DateTime.now().toIso8601String());
+    NoDoItem noDoItem = new NoDoItem(text, dateFormatted());
 //    print(noDoItem);
     int saveItemId = await db.saveItem(noDoItem);
     print('Item Saved $saveItemId');
